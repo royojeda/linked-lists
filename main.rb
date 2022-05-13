@@ -60,7 +60,7 @@ class LinkedList
   def contains?(value)
     current_index = 0
     current_node = head
-    until current_index == size - 1
+    until current_index == size
       return true if current_node.value == value
 
       current_node = current_node.next_node
@@ -100,4 +100,4 @@ a.append('yes')
 a.append('no')
 
 # test, world, hello, yes, no
-p a.find('no')
+p a.contains?('no')
