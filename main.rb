@@ -95,6 +95,26 @@ class LinkedList
     end
     "#{list}nil"
   end
+
+  def insert_at(value, index)
+    if index > size || index.negative?
+      puts 'Error. Index is out of range.'
+    elsif index.zero?
+      prepend(value)
+    elsif index == size
+      append(value)
+    else
+      new_node = Node.new(value)
+      current_index = 0
+      current_node = head
+      until current_index == index - 1
+        current_node = current_node.next_node
+        current_index += 1
+      end
+      new_node.next_node = current_node.next_node
+      current_node.next_node = new_node
+    end
+  end
 end
 
 class Node
@@ -116,7 +136,7 @@ a.append('no')
 
 # test, world, hello, yes, no
 puts a
-a.pop
-puts a
-a.pop
+a.insert_at('3', 0)
+a.insert_at('norm', 3)
+a.insert_at('nil', 7)
 puts a
