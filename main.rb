@@ -115,6 +115,22 @@ class LinkedList
       current_node.next_node = new_node
     end
   end
+
+  def remove_at(index)
+    if index >= size || index.negative?
+      puts 'Error. Index is out of range.'
+    elsif index.zero?
+      self.head = head.next_node
+    else
+      current_index = 0
+      current_node = head
+      until current_index == index - 1
+        current_node = current_node.next_node
+        current_index += 1
+      end
+      current_node.next_node = current_node.next_node.next_node
+    end
+  end
 end
 
 class Node
@@ -135,8 +151,13 @@ a.append('yes')
 a.append('no')
 
 # test, world, hello, yes, no
-puts a
 a.insert_at('3', 0)
 a.insert_at('norm', 3)
 a.insert_at('nil', 7)
+puts a
+a.remove_at(8)
+a.remove_at(7)
+a.remove_at(0)
+a.remove_at(4)
+a.remove_at(9)
 puts a
