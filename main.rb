@@ -35,6 +35,16 @@ class LinkedList
     end
     count
   end
+
+  def at(index)
+    current_index = 0
+    current_node = head
+    until current_index == index
+      current_node = current_node.next_node
+      current_index += 1
+    end
+    current_node
+  end
 end
 
 class Node
@@ -51,5 +61,8 @@ a = LinkedList.new
 a.prepend('hello')
 a.prepend('world')
 a.prepend('test')
-p a.head
-p a.tail
+a.append('yes')
+a.append('no')
+
+p a.size
+p a.at(1).value
