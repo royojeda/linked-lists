@@ -56,6 +56,18 @@ class LinkedList
     self.tail = current_node
     current_node.next_node = nil
   end
+
+  def contains?(value)
+    current_index = 0
+    current_node = head
+    until current_index == size - 1
+      return true if current_node.value == value
+
+      current_node = current_node.next_node
+      current_index += 1
+    end
+    false
+  end
 end
 
 class Node
@@ -76,8 +88,5 @@ a.append('yes')
 a.append('no')
 
 # test, world, hello, yes, no
-p a.size
-p a.at(3).next_node
-a.pop
-p a.size
-p a.at(3).next_node
+p a.contains?('this')
+p a.contains?('hello')
