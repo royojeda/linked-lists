@@ -68,6 +68,18 @@ class LinkedList
     end
     false
   end
+
+  def find(value)
+    current_index = 0
+    current_node = head
+    until current_index == size
+      return current_index if current_node.value == value
+
+      current_node = current_node.next_node
+      current_index += 1
+    end
+    nil
+  end
 end
 
 class Node
@@ -88,5 +100,4 @@ a.append('yes')
 a.append('no')
 
 # test, world, hello, yes, no
-p a.contains?('this')
-p a.contains?('hello')
+p a.find('no')
