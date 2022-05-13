@@ -85,10 +85,11 @@ class LinkedList
     current_index = 0
     current_node = head
     list = ''
-    until current_index == size
+    loop do
       list += "( #{current_node.value} ) -> "
       current_node = current_node.next_node
       current_index += 1
+      break if current_node.nil?
     end
     "#{list}nil"
   end
@@ -112,4 +113,4 @@ a.append('yes')
 a.append('no')
 
 # test, world, hello, yes, no
-p a.find('test')
+puts a
