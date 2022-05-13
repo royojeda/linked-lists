@@ -51,4 +51,5 @@ a = LinkedList.new
 a.prepend('hello')
 a.prepend('world')
 a.prepend('test')
-p a.size
+p a.head
+p a.tail
