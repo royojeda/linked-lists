@@ -45,6 +45,17 @@ class LinkedList
     end
     current_node
   end
+
+  def pop
+    current_index = 0
+    current_node = head
+    until current_index == size - 2
+      current_node = current_node.next_node
+      current_index += 1
+    end
+    self.tail = current_node
+    current_node.next_node = nil
+  end
 end
 
 class Node
@@ -64,5 +75,9 @@ a.prepend('test')
 a.append('yes')
 a.append('no')
 
+# test, world, hello, yes, no
 p a.size
-p a.at(1).value
+p a.at(3).next_node
+a.pop
+p a.size
+p a.at(3).next_node
