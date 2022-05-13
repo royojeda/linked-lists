@@ -72,11 +72,12 @@ class LinkedList
   def find(value)
     current_index = 0
     current_node = head
-    while current_index < size
+    loop do
       return current_index if current_node.value == value
 
       current_node = current_node.next_node
       current_index += 1
+      break if current_node.nil?
     end
   end
 
@@ -111,4 +112,4 @@ a.append('yes')
 a.append('no')
 
 # test, world, hello, yes, no
-puts a
+p a.find('test')
