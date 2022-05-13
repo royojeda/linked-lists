@@ -79,6 +79,18 @@ class LinkedList
       current_index += 1
     end
   end
+
+  def to_s
+    current_index = 0
+    current_node = head
+    list = ''
+    until current_index == size
+      list += "( #{current_node.value} ) -> "
+      current_node = current_node.next_node
+      current_index += 1
+    end
+    "#{list}nil"
+  end
 end
 
 class Node
@@ -99,4 +111,4 @@ a.append('yes')
 a.append('no')
 
 # test, world, hello, yes, no
-p a.find('yes')
+puts a
