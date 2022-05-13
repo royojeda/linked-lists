@@ -15,6 +15,16 @@ class LinkedList
     end
     self.tail = new_node
   end
+
+  def prepend(value)
+    new_node = Node.new(value)
+    if head.nil?
+      self.tail = new_node
+    else
+      new_node.next_node = head
+    end
+    self.head = new_node
+  end
 end
 
 class Node
@@ -28,8 +38,6 @@ class Node
 end
 
 a = LinkedList.new
-a.append('hello')
-a.append('world')
-a.append('test')
-p a.head.value
-p a.tail.value
+a.prepend('hello')
+a.prepend('world')
+a.prepend('test')
