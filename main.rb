@@ -25,6 +25,16 @@ class LinkedList
     end
     self.head = new_node
   end
+
+  def size
+    count = 0
+    current = head
+    until current.nil?
+      count += 1
+      current = current.next_node
+    end
+    count
+  end
 end
 
 class Node
@@ -41,3 +51,4 @@ a = LinkedList.new
 a.prepend('hello')
 a.prepend('world')
 a.prepend('test')
+p a.size
