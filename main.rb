@@ -49,9 +49,10 @@ class LinkedList
   def pop
     current_index = 0
     current_node = head
-    until current_index == size - 2
+    loop do
       current_node = current_node.next_node
       current_index += 1
+      break if current_node.next_node.next_node.nil?
     end
     self.tail = current_node
     current_node.next_node = nil
@@ -114,4 +115,8 @@ a.append('yes')
 a.append('no')
 
 # test, world, hello, yes, no
-p a.contains?('no')
+puts a
+a.pop
+puts a
+a.pop
+puts a
