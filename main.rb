@@ -60,7 +60,7 @@ class LinkedList
   def contains?(value)
     current_index = 0
     current_node = head
-    until current_index == size
+    while current_index < size
       return true if current_node.value == value
 
       current_node = current_node.next_node
